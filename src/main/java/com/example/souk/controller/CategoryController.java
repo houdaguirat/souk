@@ -44,7 +44,7 @@ public class CategoryController {
 	@DeleteMapping("/Category/{id}")  
 	private void deleteCategory(@PathVariable("id") int id)   
 	{  
-		cs.delete(id);  
+		cs.deleteById(id);  
 	} 
 
 	//create new Category

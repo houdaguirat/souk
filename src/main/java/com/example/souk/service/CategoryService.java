@@ -37,3 +37,9 @@ public class CategoryService {
 	{  
 		cR.save(c);  
 	} 
+	
+	public void deleteById(int id)   
+	{  
+		cR.deleteById(id);
+	}  
+}
