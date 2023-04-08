@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;  
 
 @Entity  
@@ -25,12 +27,16 @@ public class Fruit {
 	private double price;
 
 
+	@ManyToOne(optional=false)
+	@JoinColumn(name="idCategory", referencedColumnName="id")
+	private Category category;   //Category is the referenced class - category is the object instance of Category
 
 
 
 	@Override
 	public String toString() {
-		return "Fruit [id=" + id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + "]";
+		return "Fruit [id=" + id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + ", category="
+				+ category + "]";
 	}
 	public int getId() {
 		return id;
@@ -73,6 +79,12 @@ public class Fruit {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 
